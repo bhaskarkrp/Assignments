@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Api</title>
+
+    <style>
+        #container {
+            background-color: rgb(185, 88, 88);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5em;
+            place-items: center;
+        }
+        
+        #div_second {
+            background-color: rgb(113, 228, 228);
+            border: 2px solid black;
+            padding: 0.4em;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+</body>
+
+<script>
+    var url = "https://xkcd.vercel.app/?comic=latest";
+    // var url = "https://xkcd.com/614/info.0.json";
+
+    fetch(url)
+        .then(function(response) {
+            // console.log("response: ", response);
+
+            return response.json();
+        })
+        .then(function(response) {
+            // console.log("response: ", response)
+
+            for (var i = 0; i < 10; i++) {
+                apendData(response);
+            }
+        }).catch(function(error) {
+            console.log("error: ", error);
+        })
+
+
+    function apendData(data) {
+        var div = document.createElement("div");
+        div.setAttribute("id", "div_second");
+        var image = document.createElement("img");
+        image.src = data.img;
+        var title = document.createElement("h3");
+        title.textContent = `Title - ${data.title}`;
+        var para = document.createElement("p");
+        para.textContent = `Date - ${data.day}-${data.month}-${data.year}`;
+
+        div.append(image, title, para);
+
+        var container = document.getElementById('container');
+        container.append(div);
+
+    }
+</script>
+
+</html>
