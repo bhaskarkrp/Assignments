@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+
+    <style>
+        #form {
+            border: 2px solid black;
+            width: max-content;
+            padding: 1.5em;
+        }
+        
+        #form input {
+            font-size: 1em;
+            padding: 0.2em;
+            color: rgb(206, 18, 18);
+        }
+        
+        #div_li {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            place-items: center;
+        }
+        
+        #show {
+            padding: 0.7em;
+            font-size: 0.8em;
+            background-color: rgb(107, 196, 196);
+            margin: 15px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <form action="" id="form">
+            <h3>Enter your name: </h3>
+            <input type="text" placeholder="Enter your name">
+
+            <input type="submit" value="Submit">
+        </form>
+        <button id="show">Show List</button>
+        <div id="second_div">
+            <ul id="ol" style="list-style: none;"></ul>
+        </div>
+
+
+    </div>
+
+</body>
+
+<script>
+    var form = document.getElementById("form").addEventListener("submit", do_alert);
+
+    var arr = [];
+    var curr = 1;
+
+    function do_alert(event) {
+        event.preventDefault();
+        var name = event.target[0].value;
+        var obj = {};
+        // console.log(name);
+        // alert(`Hello ${name} !`);
+        obj.id = curr;
+        curr++;
+        obj.status = "Not Done";
+        obj.title = name;
+        arr.push(obj);
+        // console.log(arr);
+
+        // appendItem(arr);
+    }
+
+    document.getElementById("show").addEventListener("click", () => {
+        appendItem(arr);
+        arr = [];
+    });
+
+    function appendItem(arr) {
+
+        arr.forEach(element => {
+            // console.log(element);
+
+            var li = document.createElement("li");
+            li.style.border = "2px solid black";
+            li.style.margin = "10px 0px"
+            var div_li = document.createElement("div");
+            div_li.id = "div_li";
+            var id = document.createElement("p");
+            id.innerText = element.id;
+            var bool = document.createElement("p");
+            bool.innerText = element.status;
+            var title = document.createElement("p");
+            title.style.fontSize = "20px";
+            title.innerText = element.title;
+            var btn = document.createElement("button");
+            btn.innerText = "X";
+            btn.style.backgroundColor = "red";
+            btn.style.color = "white";
+
+
+            btn.addEventListener("click", delete_item);
+
+            //Creating Checkbox and setting event listner
+
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", checkbox_fun);
+
+            div_li.append(checkbox, id, title, bool, btn);
+            li.append(div_li)
+
+            var second_div = document.getElementById("second_div");
+            var ol = document.getElementById("ol");
+
+            ol.append(li);
+            second_div.append(ol);
+            // console.log(checkbox.value);
+
+            function delete_item(event) {
+                // console.log(event.target.parentNode.parentNode);
+
+                event.target.parentNode.parentNode.remove();
+            }
+
+
+            function checkbox_fun(event) {
+                // console.log(event.target.checked);
+                if (event.target.checked) {
+                    title.style.color = "green";
+                    title.style.borderBottom = "1px solid black";
+                    title.style.fontSize = "20px";
+                    bool.innerText = "Done";
+                } else {
+                    title.style.color = "black";
+                    title.style.borderBottom = "none";
+                    bool.innerText = "Not Done"
+                }
+            }
+
+
+        });
+    }
+</script>
+
+</html>
