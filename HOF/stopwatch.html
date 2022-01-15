@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+
+    <style>
+        #container {
+            margin: 0 auto;
+            border: 2px solid black;
+            width: max-content;
+            padding: 1em;
+        }
+        
+        #time {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            place-items: center;
+            margin: 5px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="time">
+            <h3 id="hours" style="display: none;"></h3>
+            <h3 id="min" style="display: none;"></h3>
+            <h3 id="sec">0 <sup>s</sup></h3>
+        </div>
+
+        <div class="btn">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    var [sec, min, hrs] = [0, 0, 0];
+    let set;
+
+    var sec_time = document.getElementById("sec");
+    var min_time = document.getElementById("min");
+    var hrs_time = document.getElementById("hours");
+
+
+    document.getElementById("start").addEventListener("click", () => {
+        set = setInterval(display_time, 1000);
+    });
+    document.getElementById("pause").addEventListener("click", () => {
+        console.log("pause")
+            // console.log(set)
+        clearInterval(set);
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+        console.log("reset");
+        clearInterval(set);
+        [sec, min, hrs] = [0, 0, 0];
+        sec_time.textContent = 0;
+        if (min_time.textContent !== null || hrs_time.textContent !== null) {
+            min_time.textContent = null;
+            hrs_time.textContent = null;
+        }
+
+    });
+
+    // var para = document.getElementById("time");
+
+
+
+
+
+    function display_time() {
+
+        console.log("Start");
+
+        sec += 1;
+        if (sec > 60) {
+            sec = 0;
+            min += 1;
+
+            if (min > 60) {
+                min = 0;
+                hrs += 1;
+            }
+        }
+        // para.textContent = `${hrs} : ${min} : ${sec}`
+        sec_time.textContent = `${sec} sec`;
+        if (min > 0) {
+            min_time.style.display = 'block';
+            min_time.textContent = `${min} min : `;
+        }
+
+        if (hrs > 0) {
+            hrs_time.style.display = 'block';
+            hrs_time.textContent = hr `${hrs} hour : `;
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock SetInterval</title>
+</head>
+
+<body>
+
+    <div class="container" style="border:1px solid teal; padding: 1em; width:max-content; margin: 10px auto;">
+        <h3 id="time">00 : 00: 00</h3>
+    </div>
+
+</body>
+
+<script>
+    var time = document.querySelector("#time");
+
+    setInterval(() => {
+        var date = new Date();
+        // console.log(date.getMinutes())
+        time.textContent = `${date.getHours()} : ${date.getMinutes()} : ${date.getSeconds()}`;
+    }, 1000);
+</script>
+
+</html>
