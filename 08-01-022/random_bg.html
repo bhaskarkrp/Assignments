@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background</title>
+
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            /* background: blue; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wanna See Magic? Try to resize the window.</h1>
+    </div>
+
+</body>
+
+<script>
+    var body = document.querySelector('body');
+    // body.style.backgroundColor = 'blue';
+
+    window.addEventListener('resize', changeColor);
+    var col = 00;
+
+    function changeColor() {
+        col += random();
+        console.log('coloHexCode' + '-' + '#' + col);
+        if (col > 10000) {
+            col = 00;
+        }
+        body.style.backgroundColor = '#' + col;
+    }
+
+    function random() {
+        return Math.floor(Math.random() * 100);
+    }
+
+    // console.log(random());
+</script>
+
+</html>

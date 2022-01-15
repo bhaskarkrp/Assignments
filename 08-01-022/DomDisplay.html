@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Display</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: max-width;
+        }
+        
+        .container {
+            width: max-content;
+            height: max-width;
+            margin: auto;
+            padding: 0.5em;
+        }
+        
+        #form {
+            border: 1px solid black;
+            margin: auto;
+            width: max-width;
+            display: inline-block;
+            padding: 1.5em;
+        }
+        
+        #form p,
+        input,
+        select {
+            margin: 10px auto;
+        }
+        
+        table {
+            margin: 20px 0;
+            border: 1px solid black;
+        }
+        
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="" id="form">
+            <p>Enter Employee Name : </p>
+            <input type="text" placeholder="Employee Name" id="employee">
+            <p>Choose Department</p>
+            <select name="" id="dept">
+                <!-- <option value="">Choose Department</option> -->
+                <option value="EC">EC</option>
+                <option value="IT">IT</option>
+            </select>
+            <p>Sales in Year 1 : </p>
+            <input type="number" placeholder="Sales Year 1" id="sales1">
+            <p>Sales in Year 2 : </p>
+            <input type="number" placeholder="Sales Year 2" id="sales2">
+            <br>
+            <input type="submit">
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Department</th>
+                    <th>Sales in Year 1</th>
+                    <th>Sales in Year 2</th>
+                    <th>Average Sales</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+
+        </table>
+
+        <button id="asce">Ascending</button>
+        <button id="desc">Descending</button>
+
+    </div>
+
+</body>
+
+<script>
+    document.querySelector("form").addEventListener("submit", submitForm);
+
+
+    var arr = [];
+
+    var body = document.querySelector("tbody")
+
+    function submitForm(event) {
+        event.preventDefault();
+        var obj = {};
+        // console.log(event);
+        var name = document.getElementById("employee").value;
+        var dept = document.getElementById("dept").value;
+        var sales1 = document.getElementById("sales1").value;
+        var sales2 = document.getElementById("sales2").value;
+
+        // map.set("name", name);
+        // map.set("dept", dept);
+        // map.set("sales1", +sales1);
+        // map.set("sales2", +sales2);
+        obj.name = name;
+        obj.dept = dept;
+        obj.sales1 = Number(sales1);
+        obj.sales2 = Number(sales2);
+        obj.avg_sal = ((+(sales1) + +(sales2)) / 2);
+
+        arr.push(obj);
+
+        // show_data(arr);
+
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        td1.textContent = name;
+        var td2 = document.createElement("td");
+        td2.textContent = dept;
+        var td3 = document.createElement("td");
+        td3.textContent = sales1
+        var td4 = document.createElement("td");
+        td4.textContent = sales2;
+        var td5 = document.createElement("td");
+        // map.set("avg_sal", (+(sales1) + +(sales2)) / 2);
+
+        td5.textContent = (+(sales1) + +(sales2)) / 2;
+
+
+
+        tr.append(td1, td2, td3, td4, td5);
+
+        body.append(tr);
+        // console.log(name, dept, sales1, sales2);
+
+        // console.log(map)
+    }
+
+    function show_data(arr) {
+
+        arr.forEach(element => {
+            var tr = document.createElement("tr");
+            var td1 = document.createElement("td");
+            td1.textContent = element.name;
+            var td2 = document.createElement("td");
+            td2.textContent = element.dept;
+            var td3 = document.createElement("td");
+            td3.textContent = element.sales1
+            var td4 = document.createElement("td");
+            td4.textContent = element.sales2;
+            var td5 = document.createElement("td");
+            // map.set("avg_sal", (+(sales1) + +(sales2)) / 2);
+
+            td5.textContent = element.avg_sal;
+
+
+
+            tr.append(td1, td2, td3, td4, td5);
+
+            body.append(tr);
+        });
+    }
+
+    var btn = document.querySelectorAll("button");
+    console.log(btn);
+    var asc = btn[0];
+    var desc = btn[1];
+    console.log(asc, desc);
+
+    asc.addEventListener("click", ascending);
+    desc.addEventListener("click", descending);
+
+    function descending() {
+        // console.log(arr)
+
+        arr.sort((a, b) => b.avg_sal - a.avg_sal);
+
+        body.innerHTML = null
+        show_data(arr)
+
+
+
+        // click(arr);
+        // console.log(arr)
+
+    }
+
+    function ascending() {
+
+        // console.log(arr)
+
+        arr.sort((a, b) => a.avg_sal - b.avg_sal);
+
+        body.innerHTML = null
+        show_data(arr)
+
+        // console.log(arr);
+
+    }
+</script>
+
+</html>
