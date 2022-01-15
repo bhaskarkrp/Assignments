@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perimeter and Area</title>
+
+    <style>
+        body {
+            margin: 20px;
+        }
+        
+        form {
+            width: max-content;
+            margin: auto;
+            border: 1px solid black;
+        }
+        
+        form p,
+        input {
+            font-size: 2em;
+            margin: 20px;
+            color: teal;
+        }
+        
+        h4 {
+            color: red;
+            margin: 0px 20px;
+        }
+        
+        #btn {
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .btn_grp {
+            margin: 20px auto;
+            display: table;
+        }
+        
+        button {
+            display: none;
+            font-size: 1.5em;
+            padding: 0.2em;
+            margin: 0px 20px;
+        }
+        
+        h3 {
+            width: max-content;
+            margin: 10px auto;
+            color: rgb(10, 54, 54);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <p>Length :</p>
+            <input type="number" placeholder="Enter Length of a Rectangle" id="len">
+            <h4 id="len_error"></h4>
+
+            <p>Breadth: </p>
+            <input type="text" placeholder="Enter Breadth of a Rectangle" id="bred">
+            <h4 id="breadth_error"></h4>
+            <br>
+
+            <input type="submit" id="btn">
+        </form>
+        <div class="btn_grp">
+            <button id="per">Perimeter</button>
+            <button id="area">Area</button>
+        </div>
+        <h3 id="info"></h3>
+    </div>
+
+</body>
+
+<script>
+    var form = document.querySelector('form').addEventListener('submit', ask);
+
+    function ask(event) {
+        event.preventDefault();
+        var len = parseInt(document.querySelector('#len').value);
+        if (len <= 0) {
+            document.querySelector('#len_error').textContent = "Lenght can not be negative";
+        }
+        var bred = parseInt(document.querySelector('#bred').value);
+        if (bred <= 0) {
+            document.querySelector('#breadth_error').textContent = "Breafth can not be negative";
+        }
+
+        if (len > 0 && bred > 0) {
+            var btn_peri = document.querySelector('#per');
+            var btn_area = document.querySelector('#area');
+            btn_peri.style.display = 'inline-block';
+            btn_area.style.display = 'inline-block';
+
+            btn_peri.addEventListener('click', function() {
+                perimeter(len, bred)
+            });
+            btn_area.addEventListener('click', function() {
+                area(len, bred)
+            });
+
+            function perimeter(len, breed) {
+                // console.log(event);
+                var per = Math.round(2 * (len + breed));
+                document.querySelector('#info').textContent = "Perimeter for length " + len + " Breadth " + breed + " is : " + per;
+
+            }
+
+            function area(len, breed) {
+                // console.log(len, bred);
+                var a = Math.round(len * breed);
+                document.querySelector('#info').textContent = "Area for length " + len + " Breadth " + breed + " is : " + a;
+
+            }
+        }
+
+    }
+</script>
+
+</html>

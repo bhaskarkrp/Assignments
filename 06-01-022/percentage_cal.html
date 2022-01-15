@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+
+    <style>
+        body {
+            margin: 50px;
+        }
+        
+        form {
+            width: max-content;
+            margin: auto;
+            padding: 2em;
+            border: 1px solid rgb(2, 26, 26);
+        }
+        
+        .form_content {
+            width: max-content;
+            margin: auto;
+        }
+        
+        .form_content p,
+        input {
+            font-size: 1.5em;
+            margin: 15px 15px 0px 15px;
+            color: teal;
+        }
+        
+        #btn {
+            margin: auto;
+            display: block;
+        }
+        
+        h4 {
+            color: red;
+            margin: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        <div class="form_content">
+            <p>Marks in Math :</p>
+            <input type="number" id="math" placeholder="Math Marks">
+            <h4 id="math_error"></h4>
+
+            <p>Marks in Physics :</p>
+            <input type="number" name="" id="phy" placeholder="Physics Marks">
+            <h4 id="phy_error"></h4>
+
+
+            <p>Marks in Chemestry :</p>
+            <input type="number" id="chem" placeholder="Chemestry Marks">
+            <h4 id="chem_error"></h4>
+
+            <br>
+
+            <input type="submit" id="btn">
+        </div>
+
+        <p id="percentage"></p>
+    </form>
+
+</body>
+
+<script>
+    var form = document.querySelector('form').addEventListener('submit', findAverge);
+
+    function findAverge(event) {
+        event.preventDefault();
+        var math = parseInt(document.querySelector('#math').value);
+        if (math > 100 || math < 0) {
+            document.querySelector('#math_error').textContent = "Marks must be less than 100 and greater than 0";
+            // console.log("math not ok");
+        }
+        var phy = parseInt(document.querySelector('#phy').value);
+        if (phy > 100 || phy < 0) {
+            document.querySelector("#phy_error").textContent = "Marks must be less than 100  and greater than 0";
+            // console.log("phy");
+        }
+        var chem = parseInt(document.querySelector('#chem').value);
+        if (chem > 100 && chem < 0) {
+            document.querySelector("#chem_error").textContent = "Marks must be less than 100  and greater than 0";
+            // console.log("chem");
+        }
+
+        if (math <= 100 && phy <= 100 && chem <= 100) {
+            var per = Math.floor((math + phy + chem) / 3);
+            var res = document.querySelector("#percentage");
+            if (per > 35) {
+                res.textContent = "Congrats! You are promoted, your total percentage is " + per + "%";
+                res.style.color = "green";
+            } else {
+                res.textContent = "Try Hard! You are not promoted, your total percentage is " + per + "%";
+                res.style.color = "red";
+            }
+        }
+    }
+</script>
+
+</html>
