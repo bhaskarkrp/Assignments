@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <div id="container">
+        <form action="" id="form">
+            <h3>Give a Number:</h3>
+            <input type="text" id="number" name="number" placeholder="Enter a Number">
+
+            <input type="submit" name="Check">
+        </form>
+    </div>
+
+</body>
+
+<script>
+    var form = document.getElementById("form").addEventListener("submit", submit);
+
+    function submit(event) {
+
+        event.preventDefault();
+        var input = document.getElementById("number").value;
+        // console.log(typeof(input));
+        console.log(input, isNaN(input * 1));
+        var obj = {
+            success: "true",
+            message: "Success"
+        }
+
+        var promises = new Promise((resolve, reject) => {
+            if (isNaN(input * 1)) {
+                obj.success = "false";
+                obj.message = "invalid argument, promise accepts only valid numbers";
+                reject(obj);
+                // console.log(obj.success)
+            } else {
+                resolve(obj);
+            }
+        });
+
+        promises.then((resolve) => {
+            console.log('Response :>> ', resolve);
+        }).catch((reject) => {
+            console.log('Error :>> ', reject);
+        })
+
+
+    }
+</script>
+
+</html>
