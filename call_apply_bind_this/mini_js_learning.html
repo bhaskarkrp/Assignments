@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Page</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+        
+        #container {
+            width: max-width;
+            background-color: blueviolet;
+            height: max-content;
+            padding: 2rem;
+        }
+        
+        .btn_list {
+            width: max-content;
+            margin: auto;
+        }
+        
+        .btn_list button {
+            font-size: 1rem;
+            margin-left: 2rem;
+            width: 8rem;
+            padding: 0.5rem;
+            background-color: rgb(43, 168, 226);
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 2px 2px 2px rgb(250, 162, 162);
+        }
+        
+        .info {
+            margin-top: 3.5rem;
+            /*  */
+        }
+        
+        ol {
+            width: max-content;
+            margin: auto;
+        }
+        
+        p {
+            width: max-content;
+            margin: 1rem auto;
+            font-size: 2rem;
+            box-shadow: 2px 2px 2px black;
+            background-color: rgb(255, 191, 107);
+            padding: 0.5rem;
+        }
+        
+        li {
+            margin: 1rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            background-color: aqua;
+            width: 1100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="container">
+            <div class="btn_list">
+                <button id="obj">Object</button>
+                <button id="arrays">Array</button>
+                <button id="function">Function</button>
+                <button id="string">String</button>
+                <button id="number">Number</button>
+                <button id="null">Null</button>
+                <button id="undefined">Undefined</button>
+            </div>
+        </div>
+        <div class="info">
+            <p id="topic">Click on button to know more about this topic.</p>
+            <ol id="list"></ol>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    let obj = {
+        one: "Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types",
+        two: "An object, is a reference data type.",
+        three: " Variables that are assigned a reference value are given a reference or a pointer to that value.",
+        four: "That reference or pointer points to the location in memory where the object is stored. The variables don’t actually store the value.",
+        five: "objects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs."
+    }
+
+    let arr = {
+        one: "The JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, list-like objects.",
+        two: "Neither the length of a JavaScript array nor the types of its elements are fixed.",
+        three: "data can be stored at non-contiguous locations in the array",
+        four: "JavaScript arrays are zero-indexed. The first element of an array is at index 0, and the last element is at the index value equal to the value of the array's length property minus 1.",
+        five: "Accessing array's element - nameOftheAray[index]"
+    }
+
+    let func = {
+        one: "A function is a block of JavaScript code that is defined once but can be invoked for any number of times.",
+        two: "There are 2 types of functions predefined and user defined functions",
+        three: "Predefined functions are also called Library function",
+        four: "User defined functions allow the programmer to modularize a program",
+        five: "Larger programs divided into smaller are called modules."
+    }
+
+    let str = {
+        one: "When we declare and manipulate strings in JavaScript, always write them with single quotes or double quotes around them.",
+        two: "There is some automatic functions that JavaScript assigns to each string. One of them is .length that gives the length of the string.",
+        three: "JavaScript is very relaxed about the difference between strings and numbers. In fact you can even add up numbers and strings:",
+        four: "You can convert number to string and vice versa, but be carefull with it.",
+        five: "You can concatenate two strings just by using plus (+) in between two strings."
+    }
+
+    let num = {
+        one: "Number is a primitive wrapper object.",
+        two: "Values of other types can be converted to numbers using the Number() function.",
+        three: "The JavaScript Number type is a double-precision 64-bit binary format IEEE 754 value, like double in Java or C#.This means it can represent fractional values.",
+        four: " There are some limits to what it can store. A Number only keeps about 17 decimal places of precision.",
+        five: "The largest value a Number can hold is about 1.8E308. Values higher than that are replaced with the special Number constant Infinity."
+    }
+
+    let nul = {
+        one: "You can assign null to a variable to denote that currently that variable does not have any value but it will have later on. A null means absence of a value.",
+        two: "Example: null - var myVar = null; alert(myVar); // null ",
+        three: "null is of object type e.g. typeof null will return 'object'",
+        four: "A null value evaluates to false in conditional expression. So you don't have to use comparison operators like === or !== to check for null values.",
+        five: "Example: null - var myVar = null; if (myVar)  alert('myVar is not null'); else alert('myVar is null' );"
+    }
+
+    let undef = {
+        one: "Undefined is also a primitive value in JavaScript.",
+        two: "A variable or an object has an undefined value when no value is assigned before using it. So you can say that undefined means lack of value or unknown value.",
+        three: "var myVar; alert(myVar); // undefined ",
+        four: "undefined is a token. typeof undefined will return undefined not an object.",
+        five: "You will get undefined value when you call a non-existent property or method of an object."
+    }
+    let div = document.querySelector(".info");
+    let topic = document.querySelector("#topic");
+    let btn_list = document.querySelectorAll("button");
+    // console.log(btn_list[0].id)
+    btn_list.forEach((btn) => {
+        // console.log(btn.id)
+        btn.addEventListener("click", show_info);
+    });
+
+    function show_info(event) {
+        if (event.target.innerText == "Object") {
+            // console.log(obj)
+            //Show list of objects
+            append_list.call(obj, "Object");
+        } else if (event.target.innerText == "Array") {
+            append_list.call(arr, "Array");
+
+        } else if (event.target.innerText == "Function") {
+            append_list.call(func, "Function")
+        } else if (event.target.innerText == "String") {
+            append_list.call(str, "String")
+        } else if (event.target.innerText == "Number") {
+            append_list.call(num, "Number")
+        } else if (event.target.innerText == "Null") {
+            append_list.call(nul, "Null")
+        } else if (event.target.innerText == "Undefined") {
+            append_list.call(undef, "Undefined")
+        }
+    }
+
+    function append_list(arg1) {
+        // console.log(object, object.one)
+        topic.innerText = arg1;
+        let ol = document.querySelector("#list");
+
+        let li1 = document.createElement("li");
+        li1.innerText = this.one;
+        let li2 = document.createElement("li");
+        li2.innerText = this.two;
+        let li3 = document.createElement("li");
+        li3.innerText = this.three;
+        let li4 = document.createElement("li");
+        li4.innerText = this.four;
+        let li5 = document.createElement("li");
+        li5.innerText = this.five;
+
+        ol.innerHTML = null;
+        ol.append(li1, li2, li3, li4, li5);
+
+        div.append(ol);
+
+    }
+</script>
+
+</html>
