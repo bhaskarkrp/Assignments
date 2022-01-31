@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "title": "The Code of the extraordinary mind",
+      "author": "Vishen Lakhiani",
+      "id": 4
+    },
+    {
+      "title": "Rich dad poor dad",
+      "author": "Robert Kiyosaki",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 4,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+        
+        #form {
+            border: 1px solid black;
+            width: max-content;
+            padding: 1rem;
+            margin: 1rem auto;
+            text-align: center;
+        }
+        
+        #form div {
+            margin: 1rem auto;
+        }
+        
+        #form lebel {
+            font-size: 1.5rem;
+            margin: 10px 1rem;
+        }
+        
+        #form input[type="text"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        #form input[type="submit"] {
+            padding: 0.5rem;
+            margin: 10px auto;
+        }
+        
+        #data_div {
+            margin: 10px auto;
+            width: 1000px;
+            text-align: center;
+        }
+        
+        #data_div div {
+            margin: 1.5rem auto;
+        }
+        
+        #data_div div h2 {
+            font-size: xx-large;
+            color: rgb(224, 144, 39);
+        }
+        
+        #data_div div h3 {
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form_div">
+            <form action="" id="form">
+                <div>
+                    <lebel class="books">Enter your book here:</lebel>
+                    <input type="text" id="books" placeholder="Enter your book name">
+                </div>
+                <div>
+                    <lebel class="author">Enter Author name:</lebel>
+                    <input type="text" id="author" placeholder="Enter Author name">
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div id="data_div">
+
+        </div>
+    </div>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
