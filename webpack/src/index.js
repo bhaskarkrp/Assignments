@@ -5,14 +5,14 @@ import getData from "./getData.js";
 import "./index.css"
 import showData from "./showData.js";
 
-// import image from "./note_logo.png";
+import image from "./note_logo.png";
 // import React from "react"
 // import ReactDOM from "react-dom"
 
 // DOM
 let logo = document.getElementById("logo");
 let img = document.createElement("img");
-img.src = "./note_logo.png";
+img.src = image;
 img.classList.add("note_logo");
 logo.append(img);
 
