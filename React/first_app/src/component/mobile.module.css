@@ -1,0 +1,18 @@
+h1{
+    font-size: 2em;
+}
+
+ul{
+    width: max-content;
+    margin: 20px;
+}
+
+li{
+    margin: 8px auto;
+    padding: 0.5em;
+    font-size: 1em;
+}
+.container{
+    width: max-content;
+    margin: 20px auto;
+}
