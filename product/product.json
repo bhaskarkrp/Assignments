@@ -1,0 +1,39 @@
+{
+  "productData": [
+    {
+      "title": "Grass",
+      "cost": "12",
+      "category": "Vegetables",
+      "image": "blob:http://localhost:3001/28646ede-539f-49b3-af94-b0ce240f4efb",
+      "id": 1
+    },
+    {
+      "title": "Tomato",
+      "cost": "55",
+      "category": "Vegetables",
+      "image": "blob:http://localhost:3001/7a1e6ee4-5d93-49e2-9420-270a7fbab376",
+      "id": 2
+    },
+    {
+      "title": "Grapes",
+      "cost": "80",
+      "category": "Fruits",
+      "image": "blob:http://localhost:3001/69d69760-b6c0-4dc0-96d4-713172c3bfd4",
+      "id": 3
+    },
+    {
+      "title": "Apple",
+      "cost": "59",
+      "category": "Provisions",
+      "image": "blob:http://localhost:3001/247dbd71-2d57-4db4-9743-2f098060eb8b",
+      "id": 4
+    },
+    {
+      "title": "Banana",
+      "cost": "21",
+      "category": "Provisions",
+      "image": "blob:http://localhost:3001/f664d95e-f81f-42b7-b551-5c5f5be57e1c",
+      "id": 6
+    }
+  ]
+}
