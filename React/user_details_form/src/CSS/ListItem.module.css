@@ -1,0 +1,16 @@
+li{
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0.8rem;
+    font-size: 1.3rem;
+}
+/* 
+li:nth-child() {
+    background-color: blue;
+} */
+
+.button_img{
+    width: 1.8rem;
+    margin: auto;
+}
