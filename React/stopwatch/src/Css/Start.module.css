@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  border: 1px solid black;
+  width: max-content;
+  padding: 0.5rem;
+  margin: 10rem auto;
+  background-color: rgb(240, 240, 240);
+}
+
+.toggle {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  border-bottom: 1px solid black;
+}
+
+.h2 {
+  /* border: none; */
+  cursor: pointer;
+  width: 70%;
+  text-align: center;
+  margin: 0.8rem auto;
+  padding: 1rem 2rem;
+  background-color: rgb(218, 189, 189);
+}
