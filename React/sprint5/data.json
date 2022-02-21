@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "attend": true,
+      "laptop": true,
+      "one": true,
+      "two": true,
+      "three": true,
+      "five": true,
+      "four": true,
+      "fName": "Bhaskar",
+      "email": "bhaskarkumar22@gmail.com",
+      "password": "123456789",
+      "id": 7
+    },
+    {
+      "attend": true,
+      "laptop": true,
+      "one": true,
+      "two": true,
+      "three": true,
+      "five": true,
+      "four": true,
+      "fName": "Bhaskar",
+      "email": "bhaskarkumar0022@gmail.com",
+      "password": "123456789",
+      "id": 8
+    },
+    {
+      "attend": true,
+      "laptop": true,
+      "one": true,
+      "two": true,
+      "three": true,
+      "four": true,
+      "five": true,
+      "fName": "Vivek Anand",
+      "email": "bhaskar@123",
+      "password": "123456",
+      "id": 9
+    }
+  ]
+}
