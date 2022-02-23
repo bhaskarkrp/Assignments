@@ -1,0 +1,21 @@
+.banner {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK1tun2-TtFHIG3L29cepfBN6CBTcOjTqB0A&usqp=CAU");
+  height: 9rem;
+  margin-top: 0.5rem;
+}
+.button {
+  margin-top: 6.5rem;
+  padding: 0.5rem;
+  font-size: 1.32rem;
+  background-color: rgb(34, 75, 150);
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.products {
+  margin-top: 0.5rem;
+  background-color: rgb(235, 235, 235);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

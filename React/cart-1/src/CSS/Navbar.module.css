@@ -1,0 +1,32 @@
+.nav_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  /* background-color: rgba(211, 84, 84, 0.507); */
+}
+.logo {
+  width: 100px;
+  height: 100px;
+}
+.options {
+  /* position: absolute; */
+  display: flex;
+  gap: 2.5em;
+  justify-content: flex-end;
+}
+.right_section {
+  /* margin: auto; */
+}
+.drop {
+  border: none;
+  background-color: white;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+.p {
+  cursor: pointer;
+}
+.cart {
+  height: 50px;
+  width: 50px;
+}

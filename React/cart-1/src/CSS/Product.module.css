@@ -1,0 +1,35 @@
+.prod_container {
+  padding: 0.5rem 0.2rem 1.2rem 0.2rem;
+  background-color: white;
+  border: 1px solid rgb(44, 43, 43);
+  margin: 1rem 1rem;
+}
+
+.prod_container img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.prod_container button {
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+  background-color: rgb(134, 92, 173);
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.price {
+  font-size: 1.2rem;
+}
+.brand {
+  border-bottom: 1px solid blue;
+  width: max-content;
+  margin: auto;
+  padding: 0.2rem;
+}
